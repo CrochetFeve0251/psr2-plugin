@@ -2,10 +2,14 @@
 
 namespace Launchpad\Tests\Integration;
 use ReflectionObject;
+use WPLaunchpadPHPUnitWPHooks\MockHooks;
 use WPMedia\PHPUnit\Integration\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+
+    use MockHooks;
+
     protected $config;
     protected static $transients         = [];
 
@@ -54,5 +58,15 @@ abstract class TestCase extends BaseTestCase
         $filename = $obj->getFileName();
 
         $this->config = $this->getTestData( dirname( $filename ), basename( $filename, '.php' ) );
+    }
+
+
+    function getPrefix(): string {
+        $configs = require LAUNCHPAD_PLUGIN_ROOT . '/configs/parameters.php';
+        return $configs['prefix'];
+    }
+
+    function getCurrentTest(): string {
+        return $this->getName();
     }
 }
