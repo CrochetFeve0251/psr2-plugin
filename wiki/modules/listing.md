@@ -16,4 +16,5 @@ For the moment the all list of developed modules are the following:
 |[Uninstaller](https://github.com/CrochetFeve0251/rocket-launcher-uninstaller-take-off) |Set actions to be done on uninstall|
 |[Filesystem](https://github.com/CrochetFeve0251/rocket-launcher-filesystem-take-off)|Interact with the filesystem|
 |[Front-end](https://github.com/CrochetFeve0251/rocket-launcher-front-take-off)|Create a front-end with Bud.js for your plug-in|
+|[Renderer](https://github.com/wp-launchpad/renderer-take-off)|Use a renderer for your plug-in|
 |[Hook extractor](https://github.com/CrochetFeve0251/rocket-launcher-hooks-extractor)|Extract hooks from your plugin into a yaml file|
