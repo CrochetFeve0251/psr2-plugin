@@ -50,11 +50,11 @@
         "szepeviktor/phpstan-wordpress": "^0.7.0",
         "wp-coding-standards/wpcs": "^2",
         "wp-launchpad/autoresolver": "^0.2",
-        "wp-launchpad/build": "^0.0.8",
-        "wp-launchpad/cli": "^1.0.2",
+        "wp-launchpad/build": "^0.0",
+        "wp-launchpad/cli": "^1.0",
         "wp-launchpad/cli-installer": "^0.0",
         "wp-launchpad/core": "^0.2",
-        "wp-launchpad/take-off": "^1.0.2",
+        "wp-launchpad/take-off": "^1.0",
         "wp-media/phpunit": "^3.0"
     },
     "autoload": {
