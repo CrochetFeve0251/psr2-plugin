@@ -82,7 +82,8 @@
                 "league/container",
                 "wp-launchpad/core",
                 "wp-launchpad/autoresolver"
-            ]
+            ],
+            "delete_vendor_packages": true
         }
     },
     "scripts": {
