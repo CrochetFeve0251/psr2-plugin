@@ -1,7 +1,49 @@
 
 ## Create your subscriber
 
-In Launchpad every subscriber needs to implements the interface `Launchpad\Dependencies\LaunchpadCore\EventManagement\SubscriberInterface`.
+In Launchpad there are two ways to create a subscriber.
+
+This is due to the fact the classic way provides more security preventing the developer from making certain mistakes but the counterpart is on performance as the reflection API is used in that method.
+
+### The classic way
+
+To create a subscriber the classic way there is nothing easier.
+
+Just create a class.
+
+Then for each callback create first a public method and then add the docblock `@hook` with the name of the event to register on:
+```php
+namespace Launchpad\Subscriber;
+
+class Subscriber {
+	/**
+	* @hook hook_name
+ 	*/
+	public function callback($param1, $param2) {
+    
+	}
+}
+```
+
+It is possible to add a priority by adding a number after the event the following way:
+```php
+namespace Launchpad\Subscriber;
+
+class Subscriber {
+	/**
+	* @hook hook_name 10
+ 	*/
+	public function callback($param1, $param2) {
+    
+	}
+}
+```
+
+Concerning the number of parameters this is done automatically by the framework and there is no need to indicate it.
+
+### The optimized way
+
+In Launchpad every optimized subscriber needs to implements the interface `Launchpad\Dependencies\LaunchpadCore\EventManagement\SubscriberInterface`.
 
 Due to that your subscriber should look like that:
 ```php
