@@ -9,12 +9,12 @@ Each section from the project have it's own service provider.
 They are like the pillar sections are build around as they are the link to the container which links classes together.
 Theses service providers are structured in 3 parts:
 - A declarative part where the service provider declares which IDs (classes) he is providing.
-- A part for subscribers where the service providers declares subscribers and their type.
+- A part for subscribers where the service providers declare subscribers and their type.
 - A part to load and link classes together.
 
 ### Wiring strategies
-Currently two strategies are possible to wire classes between them:
-- Auto wiring which let the framework resolve classes by itsself.
+Currently, two strategies are possible to wire classes between them:
+- Auto wiring which let the framework resolve classes by itself.
 - Manual wiring that require  the developer to tell the framework what goes where.
 
 Both strategies have advantages and drawbacks however it is strongly advised for a beginner to use auto wiring to simplify his development.

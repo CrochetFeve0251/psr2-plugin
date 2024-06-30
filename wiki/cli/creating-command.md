@@ -32,7 +32,7 @@ class ServiceProvider implements LaunchpadCLI\ServiceProviders\ServiceProviderIn
 ```
 If needed every service provider will receive 3 parameters in their constructor:
 - `Configurations $configs`: Configurations from the project.
-- `Filesystem $filesystem`: Filesystem initalized at the root from the project.
+- `Filesystem $filesystem`: Filesystem initialized at the root from the project.
 - `string $app_dir`: path from the application directory.
 
 Then inside the `attach_commands` method you can register by using the method `add` on `$app` as following:
@@ -41,7 +41,7 @@ Then inside the `attach_commands` method you can register by using the method `a
 $app->add(new Command());
 ```
 
-Finally the last step is to register the serivce provider into the CLI.
+Finally the last step is to register the service provider into the CLI.
 
 ## Event listener
 An event listener is available inside the CLI.
@@ -73,7 +73,7 @@ Then depending on your
 ### Registering a subscriber
 To register a subscriber you need to create a service provider that implements `LaunchpadCLI\ServiceProviders\EventDispatcherAwareInterface` and implement `set_event_dispatcher` method.
 
-Then you will have to implement a [League listener subscriber](https://event.thephpleague.com/3.0/extra-utilities/listener-subscriber/) and regsiter it as following into your service provider:
+Then you will have to implement a [League listener subscriber](https://event.thephpleague.com/3.0/extra-utilities/listener-subscriber/) and register it as following into your service provider:
 
 ```php
 public function set_event_dispatcher(EventDispatcher $event_dispatcher) {

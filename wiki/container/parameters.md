@@ -4,7 +4,7 @@ Not every value we want to register can be registered using a class.
 
 Due to that need to add other values into the container than classes. 
 
-Theses values are called parameters and can be an array, a string, a integer etc.
+These values are called parameters and can be an array, a string, a integer etc.
 
 ## Register a parameter
 
