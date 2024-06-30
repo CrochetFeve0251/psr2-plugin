@@ -61,7 +61,7 @@ $results = $this->apply_filter('my_filter', [
 ]);
 ```
 
-If you want to run a action you can run the method `do_action`:
+If you want to run an action you can run the method `do_action`:
 
 ```php
 $this->do_action('my_action', [

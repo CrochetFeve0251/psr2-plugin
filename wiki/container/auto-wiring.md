@@ -14,7 +14,7 @@ In that case it won't be possible to instantiate them. That's for that reason we
 
 When you bind a class to another the bound class will be instantiated each type we try to instantiate the original class.
 
-To bind a class you need to override the `` method and use the method `` for each class you want to bind:
+To bind a class you need to override the `define` method and use the method `bind` for each class you want to bind:
 ```php
 <?php
 
