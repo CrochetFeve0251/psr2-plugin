@@ -9,6 +9,7 @@
 ## Tutorials
 - Notions
   - [Framework concepts](./general/concepts/index.md)
+    - [Inversion of control](./general/concepts/ioc.md)
   - [Good practices](./general/good-practices/index.md)
   - [Testing](./general/tests/index.md)
 
