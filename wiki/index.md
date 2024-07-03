@@ -37,7 +37,7 @@ When necessary it is also possible to create your own traits and modules to adap
 
 ## Architecture
 
-[![Architecture](/home/cyrille/launchpad/wiki/_img/architecture.png)](https://excalidraw.com/#json=6zfELgdwfMw4qmw0wT_yB,07afeES0sQJdH6zw4N1Awg)
+[![Architecture](./_img/architecture.png)](https://excalidraw.com/#json=6zfELgdwfMw4qmw0wT_yB,07afeES0sQJdH6zw4N1Awg)
 
 To go with the WordPress way the framework is modular which keeps it open.
 
