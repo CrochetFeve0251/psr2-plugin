@@ -1,6 +1,5 @@
 # Table of contents
 - [Introduction](index.md)
-- [Contributing](contribute/index.md)
 
 ## General
 - [Installation](general/installation.md)

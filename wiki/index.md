@@ -37,4 +37,29 @@ When necessary it is also possible to create your own traits and modules to adap
 
 ## Architecture
 
+[![Architecture](/home/cyrille/launchpad/wiki/_img/architecture.png)](https://excalidraw.com/#json=6zfELgdwfMw4qmw0wT_yB,07afeES0sQJdH6zw4N1Awg)
 
+To go with the WordPress way the framework is modular which keeps it open.
+
+This modularity is done at two levels.
+
+First [the framework](https://github.com/wp-launchpad/launchpad) itself is as small as possible and every non-essential code is relegated to modules.
+
+This keeps the framework open as anyone is free to create his own module without being validated by the framework team.
+
+The second level where the modularity is present is inside the framework itself which is containing few code by itself and relies on packages to hold the logic.
+This is done for a simple reason flexibility and keeping the framework easy to upgrade in the future.
+
+The first part is the Core which is here to handle any logic related to the requirement of a WordPress plugin or to set up the environnement.
+
+The second part are the CLI related packages which enable automation and that is removed when bundling for production:
+
+- [**Core**](https://github.com/wp-launchpad/core): The core of the CLI is here to contain anything for the CLI to run and a couple of basic commands for the framework.
+- [**Take off**](https://github.com/wp-launchpad/take-off): The take off is handling the initialization from the project.
+- [**Installer**](https://github.com/wp-launchpad/installer): The installer is here to prevent duplicating common installation logic between modules.
+- [**Builder**](https://github.com/wp-launchpad/build): The builder is handling the creation of a production package from the plugin.
+
+Concerning the modules they are organised the following way:
+- The library itself which contains the business logic.
+- Potentially a framework logic which makes the link to the framework when necessary. (The main idea is to keep the main library easy to integrate to WP Rocket)
+- A take-off library in charge of setting up the library automatically.

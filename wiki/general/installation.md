@@ -5,7 +5,7 @@ Launchpad is a Composer project due to that it is possible to create a new proje
 Once you're done that command the latest version of the framework will be fetched and installed on your computer.
 You will have then to enter the folder from the project and initialize it.
 
-## Initalize the project
+## Initialize the project
 To initialize the project you will have to launch the following command:
 `bin/generator initialize`
 
