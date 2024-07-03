@@ -4,6 +4,7 @@
 ## General
 - [Installation](general/installation.md)
 - [Creating a subscriber](general/creating-subscriber.md)
+- [Contributing](contribute/index.md)
 
 ## CLI
 - [Commands](cli/index.md)
