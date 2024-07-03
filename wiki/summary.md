@@ -6,6 +6,12 @@
 - [Creating a subscriber](general/creating-subscriber.md)
 - [Contributing](contribute/index.md)
 
+## Tutorials
+- Notions
+  - [Framework concepts](./general/concepts/index.md)
+  - [Good practices](./general/good-practices/index.md)
+  - [Testing](./general/tests/index.md)
+
 ## CLI
 - [Commands](cli/index.md)
 - [Creating a command](cli/creating-command.md)
