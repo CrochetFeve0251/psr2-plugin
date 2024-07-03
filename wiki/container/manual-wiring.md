@@ -8,7 +8,7 @@ To register a class you will have to use the method `register_service`.
 
 This method only takes the name of the class as parameter when the class has no dependencies.
 
-However when the instantiation is more complex it takes a method as second parameters that pass as parameter the definition of the class.
+However, when the instantiation is more complex it takes a method as second parameters that pass as parameter the definition of the class.
 
 Inside that function you can use the container to get dependencies and pass them to the class as following:
 ```php

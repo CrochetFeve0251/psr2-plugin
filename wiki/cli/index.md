@@ -59,10 +59,10 @@ To create a service provider run the following command: `fixture MyClass`.
 To build an optimized artifact from project run the following command: `build`.
 
 ---------------------------------------------------------------------
-| Option | Short option | Value | Short value | Default| Description |
-|:------:|:------------:|:------:|:----------:|:-----:|:-----------:|
-| release | r | 1.0.0 | 1.0.0 | none | Fix the value from the version of the artifact|
-| type | t | fixed | f | patch | Prevent increase from the version from the artifact|
-| type | t | major| M | patch | Increase the major field from the artifact |
-| type | t | minor | m| patch | Increase the minor field from the artifact|
-| type | t | patch | p | patch | Increase the patch field from the artifact|
+| Option  | Short option | Value | Short value | Default |                     Description                     |
+|:-------:|:------------:|:-----:|:-----------:|:-------:|:---------------------------------------------------:|
+| release |      r       | 1.0.0 |    1.0.0    |  none   |   Fix the value from the version of the artifact    |
+|  type   |      t       | fixed |      f      |  patch  | Prevent increase from the version from the artifact |
+|  type   |      t       | major |      M      |  patch  |     Increase the major field from the artifact      |
+|  type   |      t       | minor |      m      |  patch  |     Increase the minor field from the artifact      |
+|  type   |      t       | patch |      p      |  patch  |     Increase the patch field from the artifact      |

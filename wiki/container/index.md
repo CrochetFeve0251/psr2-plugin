@@ -10,8 +10,8 @@ That why most pieces of logic inside the plugin finish by a subscriber.
 
 ## Subscriber loading
 
-To load theses subscribers and to allow us to have IOC we are using league container that is loading inside the `inc/plugin.php` file inside the core.
+To load these subscribers and to allow us to have IOC we are using league container that is loading inside the `inc/plugin.php` file inside the core.
 
-Inside the `configs/providers.php` file we registers all Services providers from the app that provides any class that are present inside the plugin.
+Inside the `configs/providers.php` file we register all Services providers from the app that provides any class that are present inside the plugin.
 
-With this service providers we will then load needed subscribers depending of the context.
+With this service providers we will then load needed subscribers depending on the context.
