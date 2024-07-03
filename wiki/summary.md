@@ -8,10 +8,17 @@
 
 ## Tutorials
 - Notions
-  - [Framework concepts](./general/concepts/index.md)
+  - Framework concepts
     - [Inversion of control](./general/concepts/ioc.md)
+    - [Subscribers](./general/concepts/subscribers.md)
+    - [Dispatcher](./general/concepts/dispatcher.md)
   - [Good practices](./general/good-practices/index.md)
+    - Hooks
+      - [Preventing magic constants](./general/good-practices/hooks/magic-constants.md)
+      - [Decouple features](./general/good-practices/hooks/decouple.md)
+      - [Sanitize filters output](./general/good-practices/hooks/sanitize-filters-output.md)
   - [Testing](./general/tests/index.md)
+    - [Organize tests](./general/tests/organizing_tests.md)
 
 ## CLI
 - [Commands](cli/index.md)
