@@ -7,6 +7,7 @@
 - [Contributing](contribute/index.md)
 
 ## Tutorials
+- [Migrating to Launchpad](./general/migrating.md)
 - Notions
   - Framework concepts
     - [Inversion of control](./general/concepts/ioc.md)
