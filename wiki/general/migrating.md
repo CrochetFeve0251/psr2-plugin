@@ -63,6 +63,53 @@ The first step is actually to make the business logic have a compatible with the
 
 For that it is important to adopt an object-oriented approach with a method registering or returning event definition and callback which are method on the same object.
 
+A good of achieving this would be through create a class registering actions and filters callbacks inside a method:
+```php
+use MyPlugin;
+
+class MySubscriber {
+    public function register() {
+        add_action('my_action', [$this, 'my_callback_1']);
+        add_filter('my_filter', [$this, 'my_callback_2'])
+    }
+    
+    public function my_callback_1() {
+    
+    }
+    
+    public function my_callback_2() {
+
+    }
+}
+
+```
+It is also possible to anticipate the [`@hook` annotation](../general/creating-subscriber.md) used in Launchpad to register hooks even if it would have any effect for the moment:
+```php
+use MyPlugin;
+
+class MySubscriber {
+    public function register() {
+        add_action('my_action', [$this, 'my_callback_1']);
+        add_filter('my_filter', [$this, 'my_callback_2'])
+    }
+    
+    /**
+     * @hook my_action
+     */
+    public function my_callback_1() {
+    
+    }
+    
+     /**
+     * @hook my_filter
+     */
+    public function my_callback_2() {
+
+    }
+}
+
+```
+
 Once you arrived at that level it is now time to really start the migration.
 
 #### Namespacing your code
@@ -115,7 +162,7 @@ Once this is done next step is to configure Strauss on the project by adding the
 
 First we need to add the launchpad library by doing `composer i wp-launchpad/core --dev`, we add it as a development dependency as it will be protected later by Strauss and due to that we don't want from it inside the `vendor` folder in production.
 
-Then inside the file `composer.json` we need to add the library `wp-launchpad/core` inside the list `extra.strauss.pacakges`.
+Then inside the file `composer.json` we need to add the library `wp-launchpad/core` inside the list `extra.strauss.packages`.
 
 On this is done we can install the library again using `composer i` and the code from the core should then be present inside the `vendor-prefixed`.
 
@@ -165,10 +212,77 @@ Finally, we reach the last step but not the fastest one depending on the size of
 
 Each feature from your plugin is built around a ServiceProvider that will declare everything necessary for the Core to load it.
 
-To create it you will have to create a class extending from the `MyPlugin\Dependencies\LaunchpadCore\Container\AbstractServiceProvider` class and add the classname inside the array from `configs/providers.php`.
+To create it you will have to create a class extending from the `MyPlugin\Dependencies\LaunchpadCore\Container\AbstractServiceProvider` class and add the classname inside the array from `configs/providers.php`:
+```php
+use MyPlugin;
 
-One this is done the next step will be to define the wiring between clas inside the `define` method following [the documentation](../container/providers.md).
+use MyPlugin\Dependencies\LaunchpadCore\Container\AbstractServiceProvider;
+
+class ServiceProvider extends AbstractServiceProvider {
+    public function define() {
+        
+    }
+}
+
+```
+
+One this is done the next step will be to define the wiring between classes inside the `define` method following [the documentation](../container/providers.md):
+```php
+use MyPlugin;
+
+use MyPlugin\Dependencies\LaunchpadCore\Container\AbstractServiceProvider;
+
+class ServiceProvider extends AbstractServiceProvider {
+    public function define() {
+        $this->register_service(MySubscriber::class);
+    }
+}
+
+```
 
 #### Wiring your first subscriber
 
 The last step to migrate your plugin into Launchpad is to make your business logic matching the [subscriber syntax](../general/creating-subscriber.md) and then register the subscriber into the `get_common_subscribers` from the matching service provider.
+
+For the subscriber class given previously inside that tutorial that would give that result:
+```php
+use MyPlugin;
+
+class MySubscriber {
+    
+    /**
+     * @hook my_action
+     */
+    public function my_callback_1() {
+    
+    }
+    
+     /**
+     * @hook my_filter
+     */
+    public function my_callback_2() {
+
+    }
+}
+
+```
+
+And it would be attached to the service provider that way:
+```php
+use MyPlugin;
+
+use MyPlugin\Dependencies\LaunchpadCore\Container\AbstractServiceProvider;
+
+class ServiceProvider extends AbstractServiceProvider {
+    public function define() {
+        $this->register_service(MySubscriber::class);
+    }
+    
+    public function get_common_subscribers(): array {
+        return [
+            MySubscriber::class,
+        ];
+    }
+}
+
+```
