@@ -206,8 +206,6 @@ Once this is done you can remove your own logic to boot the plugin.
 
 #### Refactoring the business logic
 
-Finally, we reach the last step but not the fastest one depending on the size of your plugin.
-
 #### Creating your first feature
 
 Each feature from your plugin is built around a ServiceProvider that will declare everything necessary for the Core to load it.
