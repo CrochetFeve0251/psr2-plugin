@@ -164,7 +164,7 @@ First we need to add the launchpad library by doing `composer i wp-launchpad/cor
 
 Then inside the file `composer.json` we need to add the library `wp-launchpad/core` inside the list `extra.strauss.packages`.
 
-On this is done we can install the library again using `composer i` and the code from the core should then be present inside the `vendor-prefixed`.
+On this is done we can install the library again using `composer i` and the code of the core should then be present inside the `vendor-prefixed`.
 
 Once this is done the next step is to create the configurations from the plugin.
 For that we need to create a `configs` folder with two files `configs/providers.php` and `configs/providers.php`.
@@ -203,6 +203,10 @@ boot(__FILE__);
 ```
 
 Once this is done you can remove your own logic to boot the plugin.
+
+This logic is often the one attached to the `plugin_loaded` event, and it is where all callbacks are registered.
+
+Note: Le logic can also be imported inside your code using `require` or `include`, in that case remove that statement.
 
 #### Refactoring the business logic
 
