@@ -14,7 +14,7 @@ As multiple projects can exist on the same WordPress website at once, it is impo
 To do so with Launchpad, we need to run the following command in the terminal:
 `bin/generator initialize`
 
-Note: For the moment the character `-` inside the plugin name  so use a space instead.
+Note: For the moment the character `-` inside the plugin name so use a space instead. (The name is the one displayed to the user)
 
 Once the command has been executed, it should ask you for your plugin name, and it will generate the necessary changes from it.
 
@@ -28,7 +28,7 @@ A good option to start with would be to use the WordPress options facade to insi
 
 For that we will need to install the corresponding take off package `wp-launchpad/framework-options-take-off` that will set it up automatically for us.
 
-For that we will have to run the following command: `composer install wp-launchpad/framework-options-take-off`
+For that we will have to run the following command: `composer require wp-launchpad/framework-options-take-off`
 
 Once this is done, then you can assert everything went as expected by looking that the provider has been added to `configs/providers.php` and that we have the matching package installed in the `composer.json` file:
 ```php
@@ -100,7 +100,7 @@ To register the subscriber we need to add the following code:
 ```php
 public function get_common_subscribers(): array {
     return [
-        MySubscriber::class;
+        MySubscriber::class,
     ];
 }
 ```
