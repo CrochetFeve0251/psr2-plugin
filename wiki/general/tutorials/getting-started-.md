@@ -14,6 +14,8 @@ As multiple projects can exist on the same WordPress website at once, it is impo
 To do so with Launchpad, we need to run the following command in the terminal:
 `bin/generator initialize`
 
+Note: For the moment the character `-` inside the plugin name  so use a space instead.
+
 Once the command has been executed, it should ask you for your plugin name, and it will generate the necessary changes from it.
 
 You can assert the command executed successfully by checking if the name from your plugin file matches what was the name from your plugin.
