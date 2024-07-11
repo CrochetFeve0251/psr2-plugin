@@ -21,19 +21,19 @@ If your plugin is already following WP Media standards then you will be able to 
 1. Remove any potential use of the `league/container` inside dependencies.
 2. Add and protect the `wp-launchpad/core` with `coenjacobs/mozart` or `brianhenryie/strauss`.
 3. Extend subscriber interface from `Launchpad\Dependencies\LaunchpadCore\EventManagement\OptimizedSubscriberInterface`
-4. Implement `Launchpad\Dependencies\LaunchpadCore\Container\ServiceProviderInterface` on each service provider or extend `Launchpad\Dependencies\LaunchpadCore\Container\AbstractServiceProvider`
-5. Add each one of your subscribers inside the matching 
-6. Create a folder `configs`
+4. Implement `Launchpad\Dependencies\LaunchpadCore\Container\ServiceProviderInterface` on each service provider or extend `Launchpad\Dependencies\LaunchpadCore\Container\AbstractServiceProvider`.
+5. Add each one of your subscribers inside the matching ServiceProvider.
+6. Create a folder `configs`.
 7. Create the file `configs/parameters.php` with the following content:
 ```php
 return [
-    'plugin_name'        => sanitize_key( 'My plugin name' ),
-    'is_mu_plugin' => false,
-    'translation_key'      => 'my-plugin',
-    'prefix' => 'my_plugin_'
+    'plugin_name'     => sanitize_key( 'My plugin name' ),
+    'is_mu_plugin'    => false,
+    'translation_key' => 'my-plugin',
+    'prefix'          => 'my_plugin_'
 ];
 ```
-8. Create the file `configs/providers.php` with each one of the providers listed inside:
+8. Create the file `configs/providers.php` with each service providers listed inside:
 ```php
 return [
     MyProvider::class,
@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 
 require __DIR__ . '/vendor-prefixed/wp-launchpad/core/inc/boot.php';
 
-boot(__FILE__);
+boot( __FILE__ );
 ````
 10. Remove all the new useless classes.
 11. Search for potential modules integrations.
@@ -83,7 +83,7 @@ class MySubscriber {
 }
 
 ```
-It is also possible to anticipate the [`@hook` annotation](../general/creating-subscriber.md) used in Launchpad to register hooks even if it would have any effect for the moment:
+It is also possible to anticipate the [`@hook` annotation](../general/creating-subscriber.md) used in Launchpad to register hooks even if it would not have any effects for the moment:
 ```php
 use MyPlugin;
 
@@ -181,10 +181,10 @@ Inside `configs/parameters.php` the following content should be added:
 ```php
 <?php 
 return [
-    'plugin_name'        => sanitize_key( 'My plugin name' ),
-    'is_mu_plugin' => false,
-    'translation_key'      => 'my-plugin',
-    'prefix' => 'my_plugin_'
+    'plugin_name'     => sanitize_key( 'My plugin name' ),
+    'is_mu_plugin'    => false,
+    'translation_key' => 'my-plugin',
+    'prefix'          => 'my_plugin_'
 ];
 ```
 
@@ -202,9 +202,9 @@ require __DIR__ . '/vendor-prefixed/wp-launchpad/core/inc/boot.php';
 boot( __FILE__ );
 ```
 
-Once this is done you can remove your own logic to boot the plugin.
+Once this is done you can remove your own logic to boot the plugin. 
 
-This logic is often the one attached to the `plugin_loaded` event, and it is where all callbacks are registered.
+This logic is often the one attached to the `plugins_loaded` event, and it is where all callbacks are registered. With LaunchPad subscribers, you cannot easily register callbacks to `plugins_loaded`, but WordPress provides more relevant hooks for usual needs from plugins. Check the Launchpad documentation about hooks to get more details.
 
 Note: The logic can also be imported inside your code using `require` or `include`, in that case remove that statement.
 
