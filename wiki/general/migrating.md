@@ -59,7 +59,7 @@ For a regular WordPress plugin it is more complex to have a step-by-step tutoria
 
 #### Adopting a subscriber approach
 
-The first step is actually to make the business logic have a compatible with the Launchpad syntax.
+The first step is actually to make the business logic architecture to respect Launchpad standards.
 
 For that it is important to adopt an object-oriented approach with a method registering or returning event definition and callback which are method on the same object.
 
