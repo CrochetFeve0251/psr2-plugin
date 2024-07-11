@@ -166,7 +166,7 @@ Then inside the file `composer.json` we need to add the library `wp-launchpad/co
 
 On this is done we can install the library again using `composer i` and the code of the core should then be present inside the `vendor-prefixed`.
 
-Once this is done the next step is to create the configurations from the plugin.
+Once this is done the next step is to create the configurations for the plugin.
 For that we need to create a `configs` folder with two files `configs/providers.php` and `configs/providers.php`.
 
 Inside `configs/providers.php` the following content should be added: 
@@ -199,14 +199,14 @@ defined( 'ABSPATH' ) || exit;
 
 require __DIR__ . '/vendor-prefixed/wp-launchpad/core/inc/boot.php';
 
-boot(__FILE__);
+boot( __FILE__ );
 ```
 
 Once this is done you can remove your own logic to boot the plugin.
 
 This logic is often the one attached to the `plugin_loaded` event, and it is where all callbacks are registered.
 
-Note: Le logic can also be imported inside your code using `require` or `include`, in that case remove that statement.
+Note: The logic can also be imported inside your code using `require` or `include`, in that case remove that statement.
 
 #### Refactoring the business logic
 
