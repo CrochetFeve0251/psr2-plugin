@@ -7,6 +7,7 @@
 - [Contributing](contribute/index.md)
 
 ## Tutorials
+- [Starting with the framework](./general/tutorials/getting-started-.md)
 - [Migrating to Launchpad](./general/migrating.md)
 - Notions
   - Framework concepts
