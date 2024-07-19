@@ -2,7 +2,7 @@
 
 namespace Launchpad;
 
-class ServiceProvider extends Dependencies\LaunchpadAutoresolver\ServiceProvider
-{
+class ServiceProvider extends Dependencies\LaunchpadAutoresolver\ServiceProvider {
+
 
 }
