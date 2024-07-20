@@ -10,7 +10,6 @@
  *
  * Text Domain: launchpad
  * Domain Path: languages
- *
  */
 
 use function Launchpad\Dependencies\LaunchpadCore\boot;
@@ -20,4 +19,4 @@ defined( 'ABSPATH' ) || exit;
 
 require __DIR__ . '/vendor-prefixed/wp-launchpad/core/inc/boot.php';
 
-boot(__FILE__);
+boot( __FILE__ );
