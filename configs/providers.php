@@ -1,4 +1,5 @@
 <?php
+namespace Launchpad\Configs;
 
 defined( 'ABSPATH' ) || exit;
 
