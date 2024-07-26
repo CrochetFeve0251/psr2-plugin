@@ -40,7 +40,7 @@ jobs:
 
 
       - name: Npm install
-        run: npm i
+        run: npm ci
 
       - name: Get composer cache directory
         id: composercache
