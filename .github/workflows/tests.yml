@@ -18,7 +18,7 @@ jobs:
       matrix:
         operating-system: [ubuntu-24.04]
         php-versions: ['7.4']
-        wp-versions: ['latest']
+        wp-versions: ['5.9', 'latest']
 
     name: WP ${{ matrix.wp-versions }} with PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}.
 
@@ -79,6 +79,9 @@ jobs:
             "phpVersion": "$PHP_VERSION"
           }
           EOF
+
+      - name: View .wp-env.override.json
+        run: cat .wp-env.override.json
 
       - name: Starting WP ENV
         run: npm run wp-env:start
