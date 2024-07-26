@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-24.04]
         php-versions: ['7.4']
         wp-versions: ['latest']
 
@@ -60,4 +60,4 @@ jobs:
         run: npm run wp-env:start
 
       - name: Test
-        run: composer run-tests
+        run: npm run run-tests
