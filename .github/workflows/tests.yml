@@ -80,9 +80,6 @@ jobs:
           }
           EOF
 
-      - name: View .wp-env.override.json
-        run: cat .wp-env.override.json
-
       - name: Starting WP ENV
         run: npm run wp-env:start
 
