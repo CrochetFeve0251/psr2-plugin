@@ -7,6 +7,7 @@ on:
       - develop
       - branch-*
       - feature/*
+      - v1
 
 jobs:
   run:
@@ -15,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-24.04]
         php-versions: ['7.4']
 
     name: WPRocket lint with PHPCS. PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}.
@@ -23,17 +24,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup NPM
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
           coverage: none  # XDebug can be enabled here 'coverage: xdebug'
-          tools: composer:v2
+          tools: composer:v2, phpunit
+
+
+      - name: Npm install
+        run: npm ci
+
+      - name: Get composer cache directory
+        id: composercache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composercache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-scripts
+        run: composer install --prefer-dist --no-interaction
 
-      - name: Lint with phpcs
-        run: |
-          vendor/bin/phpcs --config-set installed_paths ../../phpcompatibility/phpcompatibility-paragonie,../../phpcompatibility/phpcompatibility-wp,../../wp-coding-standards/wpcs,../../phpcompatibility/php-compatibility
-          composer phpcs
+      - name: Starting WP ENV
+        run: npm run wp-env:start
+
+      - name: Run linter
+        run: npm run phpcs-changed
