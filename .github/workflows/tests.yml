@@ -56,6 +56,30 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
 
+      - name: Create override wp-env
+        if: matrix.wp-versions != 'latest'
+        env:
+          PHP_VERSION: ${{ matrix.php-versions }}
+          WP_VERSION: ${{ matrix.wp-versions }}
+        run: |
+          cat <<EOF > .wp-env.override.json
+          {
+            "phpVersion": "$PHP_VERSION",
+            "core": "WordPress/WordPress#$WP_VERSION"
+          }
+          EOF
+
+      - name: Create override wp-env
+        if: matrix.wp-versions == 'latest'
+        env:
+          PHP_VERSION: ${{ matrix.php-versions }}
+        run: |
+          cat <<EOF > .wp-env.override.json
+          {
+            "phpVersion": "$PHP_VERSION"
+          }
+          EOF
+
       - name: Starting WP ENV
         run: npm run wp-env:start
 
