@@ -1,0 +1,7 @@
+{
+  "core": null,
+  "plugins": [ "." ],
+  "mappings": {
+    "wp-content/plugins/launchpad": "."
+  }
+}
