@@ -12,6 +12,6 @@
     "adminonly": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run test-integration-adminonly"
   },
   "devDependencies": {
-    "@wordpress/env": "^8.3.0"
+    "@wordpress/env": "^10.0.2"
   }
 }
