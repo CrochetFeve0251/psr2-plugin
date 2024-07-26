@@ -24,21 +24,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup NPM
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
           coverage: none  # XDebug can be enabled here 'coverage: xdebug'
           tools: composer:v2, phpunit
-
-
-      - name: Npm install
-        run: npm ci
 
       - name: Get composer cache directory
         id: composercache
@@ -54,8 +45,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
 
-      - name: Starting WP ENV
-        run: npm run wp-env:start
-
       - name: Run linter
-        run: npm run phpcs-changed
+        run: composer run phpcs-changed
