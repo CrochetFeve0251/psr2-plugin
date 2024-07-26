@@ -29,7 +29,7 @@ jobs:
       - name: Setup NPM
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 'lts/*'
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
