@@ -20,31 +20,47 @@ Registering inflectors is possible at the level from Service Providers.
 
 For that the service provider will have to first implement the interface [`LaunchpadCore\Container\HasInflectorInterface`](https://github.com/wp-launchpad/core/blob/main/inc/Container/HasInflectorInterface.php) and the trait [`LaunchpadCore\Container\InflectorServiceProviderTrait`](https://github.com/wp-launchpad/core/blob/main/inc/Container/InflectorServiceProviderTrait.php).
 
-This will provide access to a new method `get_inflectors` which will have to return the binding between the interface, the method used to inject the dependency and the arguments from that method:
+This will provide access to a new method `register_inflector` which will be able to register inflectors inside the `define` method:
 
 ```php
+class Provider extends AbstractServiceProvider implements HasInflectorInterface {
+   use InflectorServiceProviderTrait; 
+   
+   public function define() {
+    $this->register_inflector(MyInterface::class);
+   }
+} 
+```
 
-    /**
-     * Returns inflectors.
-     *
-     * @return array[]
-     */
-    public function get_inflectors(): array
-    {
-        return [
-            MyDependencyInterface::class => [
-                'method' => 'set_my_dependency',
-                'args' => [
-                    MyDependency::class,
-                ],
-            ],
-            MySecondDependencyAwareInteface::class => [
-                'method' => 'set_my_second_dependency',
-                'args' => [
-                    MySecondDependency::class,
-                ],
-            ],
-        ];
-    }
+### Inflector structure
 
+An inflector is always split into two parts:
+- An interface to recognize classes that we want to execute logic on.
+- An action to make on that class as injecting a property using a special method.
+
+For that we can pass the interface to the `register_inflector` method and then:
+- If we want to call a method we can use the method `add_method`:
+```php
+class Provider extends AbstractServiceProvider implements HasInflectorInterface {
+   use InflectorServiceProviderTrait; 
+   
+   public function define() {
+    $this->register_inflector(MyInterface::class)
+        ->add_method('my_method', [
+            10,
+            'second_parameter'
+        ]);
+   }
+} 
+```
+-If we want to inject a property we can use the method `add_property`:
+```php
+class Provider extends AbstractServiceProvider implements HasInflectorInterface {
+   use InflectorServiceProviderTrait; 
+   
+   public function define() {
+    $this->register_inflector(MyInterface::class)
+        ->add_property('my_property', false);
+   }
+} 
 ```
