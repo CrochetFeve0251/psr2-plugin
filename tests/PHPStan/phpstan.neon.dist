@@ -1,0 +1,14 @@
+includes:
+	- phar://phpstan.phar/conf/bleedingEdge.neon
+	- %currentWorkingDirectory%/vendor/wp-launchpad/launchpad-phpstan/extension.neon
+parameters:
+	level: 4
+	inferPrivatePropertyTypeFromConstructor: true
+	paths:
+		- %currentWorkingDirectory%/inc/
+		- %currentWorkingDirectory%/tests/PHPStan/
+	scanFiles:
+		- %currentWorkingDirectory%/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+	scanDirectories:
+		-  %currentWorkingDirectory%/vendor
+		-  %currentWorkingDirectory%/vendor-prefixed
