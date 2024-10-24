@@ -49,7 +49,7 @@
         "wp-launchpad/cli": "^1.0",
         "wp-launchpad/cli-installer": "^0.0",
         "wp-launchpad/core": "^v0.3.0",
-        "wp-launchpad/launchpad-phpstan": "^0.0.0",
+        "wp-launchpad/launchpad-phpstan": "^0.0",
         "wp-launchpad/take-off": "^1.0",
         "wp-media/phpunit": "^3.0"
     },
