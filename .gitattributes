@@ -1,0 +1,9 @@
+.gitattributes export-ignore
+
+phpcs.xml export-ignore
+composer.lock export-ignore
+package.json export-ignore
+.gitbook.yaml  export-ignore
+LICENSE export-ignore
+README.MD export-ignore
+wiki/ export-ignore
