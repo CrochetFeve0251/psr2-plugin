@@ -20,7 +20,7 @@ Registering inflectors is possible at the level from Service Providers.
 
 For that the service provider will have to first implement the interface [`LaunchpadCore\Container\HasInflectorInterface`](https://github.com/wp-launchpad/core/blob/main/inc/Container/HasInflectorInterface.php) and the trait [`LaunchpadCore\Container\InflectorServiceProviderTrait`](https://github.com/wp-launchpad/core/blob/main/inc/Container/InflectorServiceProviderTrait.php).
 
-    This will provide access to a new method `register_inflector` which will be able to register inflectors inside the `define` method:
+This will provide access to a new method `register_inflector` which will be able to register inflectors inside the `define` method:
 
 ```php
 class Provider extends AbstractServiceProvider implements HasInflectorInterface {
