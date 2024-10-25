@@ -54,6 +54,7 @@
         "wp-launchpad/cli": "^1.0",
         "wp-launchpad/cli-installer": "^0.0",
         "wp-launchpad/core": "^0.2",
+        "wp-launchpad/phpunit-wp-hooks": "^1.0",
         "wp-launchpad/take-off": "^1.0",
         "wp-media/phpunit": "^3.0"
     },
