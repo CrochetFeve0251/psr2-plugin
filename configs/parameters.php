@@ -16,5 +16,6 @@ return [
 	'plugin_inc_path'      => realpath( $plugin_launcher_path . 'inc/' ) . '/',
 	'prefix'               => 'launchpad_',
 	'translation_key'      => 'launchpad',
+	'autowiring'           => true,
 	'is_mu_plugin'         => false,
 ];

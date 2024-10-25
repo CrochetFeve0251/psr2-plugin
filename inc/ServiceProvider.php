@@ -2,7 +2,16 @@
 
 namespace Launchpad;
 
-class ServiceProvider extends Dependencies\LaunchpadAutoresolver\ServiceProvider {
+use Launchpad\Dependencies\LaunchpadCore\Container\AbstractServiceProvider;
 
+class ServiceProvider extends AbstractServiceProvider {
 
+	/**
+	 * Define your services.
+	 *
+	 * @return void
+	 */
+	protected function define() {
+		// Add your services.
+	}
 }
