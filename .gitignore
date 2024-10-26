@@ -5,3 +5,4 @@ inc/Dependencies/*
 inc/classes/*
 build
 node_modules
+composer.lock

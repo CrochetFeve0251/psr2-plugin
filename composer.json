@@ -1,5 +1,6 @@
 {
     "name": "wp-launchpad/launchpad",
+    "minimum-stability": "dev",
     "description": "Framework to create a modern PHP plugin in no time",
     "keywords": [
         "wordpress",
@@ -45,12 +46,12 @@
         "phpunit/phpunit": "^7.5 || ^8 || ^9",
         "roave/security-advisories": "dev-master",
         "wp-coding-standards/wpcs": "^2",
-        "wp-launchpad/build": "^0.0",
-        "wp-launchpad/cli": "^1.0",
-        "wp-launchpad/cli-installer": "^0.0",
-        "wp-launchpad/core": "^v0.3.0",
-        "wp-launchpad/launchpad-phpstan": "^0.0",
-        "wp-launchpad/take-off": "^1.0",
+        "wp-launchpad/build": "^0.0 || @dev",
+        "wp-launchpad/cli": "^1.0 || @dev",
+        "wp-launchpad/cli-installer": "^0.0 || @dev",
+        "wp-launchpad/core": "^v0.3.0 || @dev",
+        "wp-launchpad/launchpad-phpstan": "^0.0 || @dev",
+        "wp-launchpad/take-off": "^1.0 || @dev",
         "wp-media/phpunit": "^3.0"
     },
     "autoload": {
@@ -113,6 +114,5 @@
         ],
         "code-coverage": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist --coverage-clover=tests/report/coverage.clover"
     },
-    "minimum-stability": "stable",
     "prefer-stable": true
 }
