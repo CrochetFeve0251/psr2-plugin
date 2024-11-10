@@ -1,4 +1,4 @@
-___# Deactivate
+# Deactivate
 
 The deactivate logic is some logic executed each time the plugin got disabled.
 
