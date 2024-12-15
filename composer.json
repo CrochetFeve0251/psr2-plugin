@@ -80,9 +80,6 @@
                 "wp-launchpad/autoresolver"
             ],
             "delete_vendor_packages": true
-        },
-        "branch-alias": {
-            "dev-feature/ll-subscribers": "3.1-dev"
         }
     },
     "scripts": {
