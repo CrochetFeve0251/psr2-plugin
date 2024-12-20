@@ -18,7 +18,7 @@ Once the command finished being executed [a new file `uninstall.php`](https://gi
 
 In Launchpad, to create a logic which will be executed when the plugin is uninstalled, we need to use an Uninstaller.
 
-To create an uninstaller, any class can be used as the only requirement is to [use the `@uninstall` annotation](https://github.com/wp-launchpad/launchpad-examples/blob/316e6927e24339550a81879fdaf189d73a9acf4b/activate/inc/MyActivator.php#L12) inside the docblock of at least one of the methods:
+To create an uninstaller, any class can be used as the only requirement is to [use the `@uninstall` annotation](https://github.com/wp-launchpad/launchpad-examples/blob/f1a8f3567e04402b969812974918a865fd3bd124/uninstall/inc/Uninstaller.php#L7) inside the docblock of at least one of the methods:
 
 ```php
 class MyUninstaller {
@@ -33,8 +33,8 @@ class MyUninstaller {
 
 Once the uninstaller class is created, it needs to be registered on a service provider to be loaded.
 
-For that it is important to first [add the necessary logic into the provider](https://github.com/wp-launchpad/launchpad-examples/blob/316e6927e24339550a81879fdaf189d73a9acf4b/activate/inc/ServiceProvider.php#L9)
-using [`HasUninstallerServiceProviderInterface`](https://github.com/wp-launchpad/core/blob/develop/inc/Activation/HasActivatorServiceProviderInterface.php) interface and [`HasUninstallerServiceProviderTrait`](https://github.com/wp-launchpad/core/blob/develop/inc/Activation/HasActivatorServiceProviderTrait.php) trait:
+For that it is important to first [add the necessary logic into the provider](https://github.com/wp-launchpad/launchpad-examples/blob/f1a8f3567e04402b969812974918a865fd3bd124/uninstall/inc/ServiceProvider.php#L9)
+using [`HasUninstallerServiceProviderInterface`](https://github.com/wp-launchpad/uninstaller/blob/3.1/inc/Uninstall/HasUninstallerServiceProviderInterface.php) interface and [`HasUninstallerServiceProviderTrait`](https://github.com/wp-launchpad/uninstaller/blob/3.1/inc/Uninstall/HasUninstallerServiceProviderTrait.php) trait:
 
 ```php
 class Provider extends AbstractServiceProvider implements HasUninstallerServiceProviderInterface {
@@ -46,7 +46,7 @@ class Provider extends AbstractServiceProvider implements HasUninstallerServiceP
 } 
 ```
 
-It is then possible to have access to the [`register_uninstaller` method to register our uninstaller](https://github.com/wp-launchpad/launchpad-examples/blob/316e6927e24339550a81879fdaf189d73a9acf4b/activate/inc/ServiceProvider.php#L18) inside [the `define` method](https://github.com/wp-launchpad/launchpad-examples/blob/316e6927e24339550a81879fdaf189d73a9acf4b/activate/inc/ServiceProvider.php#L17):
+It is then possible to have access to the [`register_uninstaller` method to register our uninstaller](https://github.com/wp-launchpad/launchpad-examples/blob/f1a8f3567e04402b969812974918a865fd3bd124/uninstall/inc/ServiceProvider.php#L20) inside [the `define` method](https://github.com/wp-launchpad/launchpad-examples/blob/f1a8f3567e04402b969812974918a865fd3bd124/uninstall/inc/ServiceProvider.php#L18):
 ```php
 class Provider extends AbstractServiceProvider implements HasUninstallerServiceProviderInterface {
    use HasUninstallerServiceProviderTrait; 
