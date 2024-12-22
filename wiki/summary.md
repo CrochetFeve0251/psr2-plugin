@@ -7,6 +7,17 @@
 - [Contributing](contribute/index.md)
 
 ## Tutorials
+- [Beginner documentation](./beginner/index.md)
+  - [Beginner handbook](./beginner/handbook/index.md)
+      - [Creating subscribers](./beginner/handbook/subscribers.md)
+      - [Wiring subscribers](./beginner/handbook/wiring.md)
+      - [Installing local environment](./beginner/handbook/local-env.md)
+      - [Adding front-end](./beginner/handbook/front.md) 
+      - [Building the plugin](./beginner/handbook/build.md)
+  - [Plugin life circle](./beginner/plugin-life-circle/index.md)
+    - [Activation](./beginner/plugin-life-circle/activate.md)
+    - [Deactivation](./beginner/plugin-life-circle/deactivate.md)
+    - [Uninstall](./beginner/plugin-life-circle/uninstall.md)
 - [Starting with the framework](./general/tutorials/getting-started-.md)
 - [Migrating to Launchpad](./general/migrating.md)
 - Notions
